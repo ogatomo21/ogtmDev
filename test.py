@@ -1,6 +1,10 @@
 import os
+import time
 import tweepy
 import datetime as dt
+
+os.environ['TZ'] = 'Asia/Tokyo'
+time.tzset()
 
 CONSUMER_KEY = os.environ['CONSUMER_KEY']
 CONSUMER_SECRET = os.environ['CONSUMER_SECRET']

@@ -1,8 +1,12 @@
 import os
 import tweepy
+import time
 import datetime as dt
 from dateutil.relativedelta import relativedelta
 import wakapi as w
+
+os.environ['TZ'] = 'Asia/Tokyo'
+time.tzset()
 
 secret = os.environ['WAKATIME_SECRET']
 
