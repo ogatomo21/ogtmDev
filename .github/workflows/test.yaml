@@ -16,4 +16,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Post X(Twitter)
+        env:
+            WAKATIME_SECRET: ${{secrets.WAKATIME_SECRET}}
+            CONSUMER_KEY: ${{secrets.CONSUMER_KEY}}
+            CONSUMER_SECRET: ${{secrets.CONSUMER_SECRET}}
+            ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
+            ACCESS_SECRET: ${{secrets.ACCESS_SECRET}}
         run: python test.py
