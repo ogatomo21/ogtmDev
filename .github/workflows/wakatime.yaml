@@ -1,6 +1,7 @@
 name: WakaTime
 
 on:
+  workflow_dispatch:
   schedule:
     # UTCで時間は指定する(UTC22時なのでJST翌7時)
     - cron: "0 22 * * *"

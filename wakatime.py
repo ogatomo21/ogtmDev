@@ -17,18 +17,25 @@ ACCESS_SECRET = os.environ['ACCESS_SECRET']
 
 weekdays = ['月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日', '日曜日']
 
-totalWork = w.total(secret, True)
-totalWorkText = f"{totalWork["days"]} 日 {totalWork["hours"]} 時間 {totalWork["min"]} 分 {totalWork["sec"]} 秒"
+tWork = w.total(secret, True)
+tDays = tWork["days"]
+tHours = tWork["hours"]
+tMin = tWork["min"]
+tSec = tWork["sec"]
+tWorkText = f"{tDays} 日 {tHours} 時間 {tMin} 分 {tSec} 秒"
 
 now = dt.date.today()
 yesterday = now + relativedelta(days=-1)
-yesterdayText = yesterday.strftime('%Y-%m-%d')
-yesterdayWork = w.date(secret,yesterdayText , True)
-yesterdayWorkText = f"{yesterdayWork["hours"]} 時間 {yesterdayWork["min"]} 分 {yesterdayWork["sec"]} 秒"
+yText = yesterday.strftime('%Y-%m-%d')
+yWork = w.date(secret,yText , True)
+yHours = yWork["hours"]
+yMin = yWork["min"]
+ySec = yWork["sec"]
+yWorkText = f"{yHours} 時間 {yMin} 分 {ySec} 秒"
 
 todayText = now.strftime(f'%Y年%m月%d日 {weekdays[now.weekday()]}')
 
-postText = f"（毎朝自動配信）おはようございます。本日は{todayText}です。\n\n昨日の作業時間は {yesterdayWorkText} でした。\n\n昨日までの累計は合計 {totalWorkText} です。"
+postText = f"（毎朝自動配信）おはようございます。本日は{todayText}です。\n\n昨日の作業時間は {yWorkText} でした。\n\n昨日までの累計は合計 {tWorkText} です。"
 print(postText)
 
 client = tweepy.Client(
