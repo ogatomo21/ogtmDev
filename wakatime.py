@@ -22,15 +22,20 @@ tDays = tWork["days"]
 tHours = tWork["hours"]
 tMin = tWork["min"]
 tSec = tWork["sec"]
+
 tWorkText = f"{tDays} 日 {tHours} 時間 {tMin} 分 {tSec} 秒"
 
 now = dt.date.today()
 yesterday = now + relativedelta(days=-1)
 yText = yesterday.strftime('%Y-%m-%d')
-yWork = w.date(secret,yText , True)
+yWork = w.date(secret, yText, True)
 yHours = yWork["hours"]
 yMin = yWork["min"]
 ySec = yWork["sec"]
+
+if(yHours == 0 and yMin == 0 and YSec == 0):
+    sys.exit()
+
 yWorkText = f"{yHours} 時間 {yMin} 分 {ySec} 秒"
 
 todayText = now.strftime(f'%Y年%m月%d日 {weekdays[now.weekday()]}')
