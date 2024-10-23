@@ -33,7 +33,7 @@ yHours = yWork["hours"]
 yMin = yWork["min"]
 ySec = yWork["sec"]
 
-if(yHours == 0 and yMin == 0 and YSec == 0):
+if(yHours == 0 and yMin == 0 and ySec == 0):
     sys.exit()
 
 yWorkText = f"{yHours} 時間 {yMin} 分 {ySec} 秒"
